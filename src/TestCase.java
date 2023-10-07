@@ -15,9 +15,6 @@ import java.time.Duration;
 public class TestCase extends BaseDriver {
     @Test(priority = 1)
     public void Ebook_Payment_Process(){
-        driver.get("https://e-junkie.com/wiki/demo/");
-        MyFunction.Wait(1);
-
         WebElement addToCart= driver.findElement(By.xpath("//a[text()='Add to Cart']"));
         addToCart.click();
 
