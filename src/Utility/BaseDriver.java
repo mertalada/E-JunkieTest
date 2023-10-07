@@ -17,6 +17,8 @@ public class BaseDriver {
         logger.setLevel(Level.SEVERE);
 
         driver = new ChromeDriver();
+        driver.get("https://www.e-junkie.com/wiki/demo/paypal");
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
