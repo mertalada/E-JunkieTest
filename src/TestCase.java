@@ -15,6 +15,23 @@ import java.time.Duration;
 public class TestCase extends BaseDriver {
     @Test(priority = 1)
     public void Ebook_Payment_Process(){
+        WebElement addToCart= driver.findElement(By.xpath("//a[text()='Add to Cart']"));
+        addToCart.click();
+
+        driver.switchTo().frame(0);
+
+        MyFunction.Wait(1);
+        WebElement debitCard = driver.findElement(By.cssSelector("[data-option='CC']"));
+        debitCard.click();
+
+        MyFunction.Wait(1);
+        WebElement paying = driver.findElement(By.xpath("//*[text()='Pay 0.01 USD']"));
+        paying.click();
+
+        MyFunction.Wait(1);
+        WebElement invalidEmail = driver.findElement(By.xpath("//span[text()='Invalid Email']"));
+
+        Assert.assertTrue(invalidEmail.getText().contains("Invalid Email"));
 
     }
     @Test(priority = 2)
